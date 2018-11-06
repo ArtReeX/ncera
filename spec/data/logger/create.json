@@ -1,0 +1,11 @@
+{
+  "config": {
+    "appenders": {
+      "console": { "type": "console" }
+    },
+    "categories": {
+      "another": { "appenders": ["console"], "level": "trace" },
+      "default": { "appenders": ["console"], "level": "trace" }
+    }
+  }
+}

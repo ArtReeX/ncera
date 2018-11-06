@@ -1,0 +1,40 @@
+{
+  "cfgNetwork": {
+    "snapshot": {
+      "path": "snapshots",
+      "extension": ".snapshot"
+    },
+    "model": {
+      "path": "models",
+      "extension": ".train",
+      "key": {
+        "exchange": "exchange",
+        "columns": "columns"
+      }
+    },
+    "pattern": { "input": 10, "output": 1 },
+    "training": {
+      "iterations": 50,
+      "errorThresh": 0.1,
+      "log": true,
+      "logPeriod": 1,
+      "learningRate": 0.3,
+      "momentum": 0.1,
+      "callbackPeriod": 1,
+      "timeout": null
+    }
+  },
+  "cfgLog": {
+    "appenders": {
+      "app": { "type": "file", "filename": "./logs/app.txt" },
+      "network": { "type": "file", "filename": "./logs/network.txt" },
+      "console": { "type": "console" }
+    },
+    "categories": {
+      "app": { "appenders": ["app", "console"], "level": "trace" },
+      "network": { "appenders": ["network", "console"], "level": "trace" },
+      "another": { "appenders": ["app", "console"], "level": "trace" },
+      "default": { "appenders": ["app", "console"], "level": "trace" }
+    }
+  }
+}

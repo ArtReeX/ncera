@@ -1,0 +1,4 @@
+{
+  "path": "./spec/tests/test.temp",
+  "data": { "exampleOne": "testString", "exampleTwo": 9806 }
+}

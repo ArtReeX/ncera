@@ -1,0 +1,122 @@
+{
+  "filenames": { "xrp": "xrp", "eth": "eth", "eos": "eos" },
+  "config": {
+    "snapshot": {
+      "path": "./spec/tests/snapshots",
+      "extension": ".snapshot"
+    },
+
+    "model": {
+      "path": "./spec/tests/models",
+      "extension": ".train"
+    }
+  },
+  "input": {
+    "xrp": [
+      {
+        "exchange": "exmo",
+        "columns": [
+          {
+            "date": 1533124800,
+            "high": 0.00099997,
+            "low": 0.0008,
+            "open": 0.0008,
+            "close": 0.00097083,
+            "volume": 2.64450092,
+            "quoteVolume": 2706.94029415,
+            "weightedAverage": 0.00097693
+          },
+          {
+            "date": 1533139200,
+            "high": 0.00098009,
+            "low": 0.000955,
+            "open": 0.00097083,
+            "close": 0.00096587,
+            "volume": 20.3658198,
+            "quoteVolume": 21037.24957023,
+            "weightedAverage": 0.00096808
+          }
+        ]
+      },
+      {
+        "exchange": "bittrex",
+        "columns": [
+          {
+            "date": 1533124800,
+            "high": 0.00099997,
+            "low": 0.0008,
+            "open": 0.0008,
+            "close": 0.00097083,
+            "volume": 2.64450092,
+            "quoteVolume": 2706.94029415,
+            "weightedAverage": 0.00097693
+          },
+          {
+            "date": 1533139200,
+            "high": 0.00098009,
+            "low": 0.000955,
+            "open": 0.00097083,
+            "close": 0.00096587,
+            "volume": 20.3658198,
+            "quoteVolume": 21037.24957023,
+            "weightedAverage": 0.00096808
+          }
+        ]
+      }
+    ],
+    "eth": [
+      {
+        "exchange": "exmo",
+        "columns": [
+          {
+            "date": 1533124800,
+            "high": 0.00099997,
+            "low": 0.0008,
+            "open": 0.0008,
+            "close": 0.00097083,
+            "volume": 2.64450092,
+            "quoteVolume": 2706.94029415,
+            "weightedAverage": 0.00097693
+          },
+          {
+            "date": 1533139200,
+            "high": 0.00098009,
+            "low": 0.000955,
+            "open": 0.00097083,
+            "close": 0.00096587,
+            "volume": 20.3658198,
+            "quoteVolume": 21037.24957023,
+            "weightedAverage": 0.00096808
+          }
+        ]
+      }
+    ],
+    "eos": [
+      {
+        "exchange": "changelly",
+        "columns": [
+          {
+            "date": 1533124800,
+            "high": 0.00099997,
+            "low": 0.0008,
+            "open": 0.0008,
+            "close": 0.00097083,
+            "volume": 2.64450092,
+            "quoteVolume": 2706.94029415,
+            "weightedAverage": 0.00097693
+          },
+          {
+            "date": 1533139200,
+            "high": 0.00098009,
+            "low": 0.000955,
+            "open": 0.00097083,
+            "close": 0.00096587,
+            "volume": 20.3658198,
+            "quoteVolume": 21037.24957023,
+            "weightedAverage": 0.00096808
+          }
+        ]
+      }
+    ]
+  }
+}

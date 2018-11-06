@@ -1,0 +1,8 @@
+{
+  "path": "./spec/tests",
+  "filenames": {
+    "one": "fileOne.temp",
+    "two": "fileTwo.temp",
+    "three": "fileThree.notemp"
+  }
+}

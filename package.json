@@ -1,0 +1,29 @@
+{
+  "name": "ncera",
+  "version": "0.8.0",
+  "description": "Neural Currency Exchange Rate Analyzer.",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "start": "node index",
+    "test": "jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Arthur-Lazarenko/NCERA.git"
+  },
+  "keywords": [
+    "neural",
+    "currency",
+    "exchange",
+    "rate",
+    "analyzer"
+  ],
+  "author": "Arthur Lazarenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Arthur-Lazarenko/NCERA/issues"
+  },
+  "homepage": "https://github.com/Arthur-Lazarenko/NCERA#readme"
+}
