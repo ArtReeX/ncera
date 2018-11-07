@@ -15,24 +15,34 @@
           "exchange": "poloniex",
           "columns": [
             {
-              "date": 1533124800,
-              "high": 0.00099997,
-              "low": 0.0008,
-              "open": 0.0008,
-              "close": 0.00097083,
-              "volume": 2.64450092,
-              "quoteVolume": 2706.94029415,
-              "weightedAverage": 0.00097693
+              "date": 1541001600,
+              "high": 5.30853068,
+              "low": 5.25089101,
+              "open": 5.30853068,
+              "close": 5.28382498,
+              "volume": 17136.21856962,
+              "quoteVolume": 3243.90865503,
+              "weightedAverage": 5.28258357
             },
             {
-              "date": 1533139200,
-              "high": 0.00098009,
-              "low": 0.000955,
-              "open": 0.00097083,
-              "close": 0.00096587,
-              "volume": 20.3658198,
-              "quoteVolume": 21037.24957023,
-              "weightedAverage": 0.00096808
+              "date": 1541016000,
+              "high": 5.28381075,
+              "low": 5.26172017,
+              "open": 5.28381075,
+              "close": 5.27544445,
+              "volume": 212.62445269,
+              "quoteVolume": 40.33466607,
+              "weightedAverage": 5.27150645
+            },
+            {
+              "date": 1541030400,
+              "high": 5.27101191,
+              "low": 5.22751657,
+              "open": 5.27101184,
+              "close": 5.22751673,
+              "volume": 96.24469819,
+              "quoteVolume": 18.30045751,
+              "weightedAverage": 5.25914164
             }
           ]
         },
@@ -40,24 +50,24 @@
           "exchange": "exmo",
           "columns": [
             {
-              "date": 1533124800,
-              "high": 0.00099997,
-              "low": 0.0008,
-              "open": 0.0008,
-              "close": 0.00097083,
-              "volume": 2.64450092,
-              "quoteVolume": 2706.94029415,
-              "weightedAverage": 0.00097693
+              "date": 1541001600,
+              "high": 5.30853068,
+              "low": 5.25089101,
+              "open": 5.30853068,
+              "close": 5.28382498,
+              "volume": 17136.21856962,
+              "quoteVolume": 3243.90865503,
+              "weightedAverage": 5.28258357
             },
             {
-              "date": 1533139200,
-              "high": 0.00098009,
-              "low": 0.000955,
-              "open": 0.00097083,
-              "close": 0.00096587,
-              "volume": 20.3658198,
-              "quoteVolume": 21037.24957023,
-              "weightedAverage": 0.00096808
+              "date": 1541016000,
+              "high": 5.28381075,
+              "low": 5.26172017,
+              "open": 5.28381075,
+              "close": 5.27544445,
+              "volume": 212.62445269,
+              "quoteVolume": 40.33466607,
+              "weightedAverage": 5.27150645
             }
           ]
         }
@@ -70,24 +80,34 @@
           "exchange": "poloniex",
           "columns": [
             {
-              "date": 1533124800,
-              "high": 0.00099997,
-              "low": 0.0008,
-              "open": 0.0008,
-              "close": 0.00097083,
-              "volume": 2.64450092,
-              "quoteVolume": 2706.94029415,
-              "weightedAverage": 0.00097693
+              "date": 1541001600,
+              "high": 5.30853068,
+              "low": 5.25089101,
+              "open": 5.30853068,
+              "close": 5.28382498,
+              "volume": 17136.21856962,
+              "quoteVolume": 3243.90865503,
+              "weightedAverage": 5.28258357
             },
             {
-              "date": 1533139200,
-              "high": 0.00098009,
-              "low": 0.000955,
-              "open": 0.00097083,
-              "close": 0.00096587,
-              "volume": 20.3658198,
-              "quoteVolume": 21037.24957023,
-              "weightedAverage": 0.00096808
+              "date": 1541016000,
+              "high": 5.28381075,
+              "low": 5.26172017,
+              "open": 5.28381075,
+              "close": 5.27544445,
+              "volume": 212.62445269,
+              "quoteVolume": 40.33466607,
+              "weightedAverage": 5.27150645
+            },
+            {
+              "date": 1541030400,
+              "high": 5.27101191,
+              "low": 5.22751657,
+              "open": 5.27101184,
+              "close": 5.22751673,
+              "volume": 96.24469819,
+              "quoteVolume": 18.30045751,
+              "weightedAverage": 5.25914164
             }
           ]
         }
@@ -106,22 +126,25 @@
           "exchange": "poloniex",
           "columns": [
             {
-              "high": 0.00099997,
-              "low": 0.0008,
-              "open": 0.0008,
-              "close": 0.00097083,
-              "volume": 2.64450092,
-              "quoteVolume": 2706.94029415,
-              "weightedAverage": 0.00097693
+              "high": "5.309",
+              "low": "5.251",
+              "open": "5.309",
+              "close": "5.284",
+              "weightedAverage": "5.283"
             },
             {
-              "high": 0.00098009,
-              "low": 0.000955,
-              "open": 0.00097083,
-              "close": 0.00096587,
-              "volume": 20.3658198,
-              "quoteVolume": 21037.24957023,
-              "weightedAverage": 0.00096808
+              "high": "5.284",
+              "low": "5.262",
+              "open": "5.284",
+              "close": "5.275",
+              "weightedAverage": "5.272"
+            },
+            {
+              "high": "5.271",
+              "low": "5.228",
+              "open": "5.271",
+              "close": "5.228",
+              "weightedAverage": "5.259"
             }
           ]
         },
@@ -129,22 +152,18 @@
           "exchange": "exmo",
           "columns": [
             {
-              "high": 0.00099997,
-              "low": 0.0008,
-              "open": 0.0008,
-              "close": 0.00097083,
-              "volume": 2.64450092,
-              "quoteVolume": 2706.94029415,
-              "weightedAverage": 0.00097693
+              "high": "5.309",
+              "low": "5.251",
+              "open": "5.309",
+              "close": "5.284",
+              "weightedAverage": "5.283"
             },
             {
-              "high": 0.00098009,
-              "low": 0.000955,
-              "open": 0.00097083,
-              "close": 0.00096587,
-              "volume": 20.3658198,
-              "quoteVolume": 21037.24957023,
-              "weightedAverage": 0.00096808
+              "high": "5.284",
+              "low": "5.262",
+              "open": "5.284",
+              "close": "5.275",
+              "weightedAverage": "5.272"
             }
           ]
         }
@@ -157,30 +176,30 @@
           "exchange": "poloniex",
           "columns": [
             {
-              "high": 0.00099997,
-              "low": 0.0008,
-              "open": 0.0008,
-              "close": 0.00097083,
-              "volume": 2.64450092,
-              "quoteVolume": 2706.94029415,
-              "weightedAverage": 0.00097693
+              "high": "5.309",
+              "low": "5.251",
+              "open": "5.309",
+              "close": "5.284",
+              "weightedAverage": "5.283"
             },
             {
-              "high": 0.00098009,
-              "low": 0.000955,
-              "open": 0.00097083,
-              "close": 0.00096587,
-              "volume": 20.3658198,
-              "quoteVolume": 21037.24957023,
-              "weightedAverage": 0.00096808
+              "high": "5.284",
+              "low": "5.262",
+              "open": "5.284",
+              "close": "5.275",
+              "weightedAverage": "5.272"
+            },
+            {
+              "high": "5.271",
+              "low": "5.228",
+              "open": "5.271",
+              "close": "5.228",
+              "weightedAverage": "5.259"
             }
           ]
         }
       ]
     },
-    {
-      "currency": "eos",
-      "stockCharts": []
-    }
+    { "currency": "eos", "stockCharts": [] }
   ]
 }

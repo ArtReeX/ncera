@@ -29,7 +29,7 @@ module.exports = (config = cfgNetwork, log) => {
     );
 
     // создание шаблонов для обучения из стандартизированных моделей
-    const patterns = pattern.create(standardizedModels, cfgNetwork);
+    const patterns = pattern.create(standardizedModels, config);
     // отправка информации в лог
     log.network.info(
       `Создано следующее количество шаблонов для обучения: ${patterns.map(
@@ -68,6 +68,36 @@ module.exports = (config = cfgNetwork, log) => {
     // активация нейронной сети
     const result = brain.run(brains, 'eos', 'poloniex', [
       {
+        date: 1541174400,
+        high: 5.4153,
+        low: 5.39804999,
+        open: 5.40356982,
+        close: 5.40626997,
+        volume: 1721.40991987,
+        quoteVolume: 318.4508082,
+        weightedAverage: 5.4055756,
+      },
+      {
+        date: 1541188800,
+        high: 5.40626996,
+        low: 5.38433073,
+        open: 5.40356,
+        close: 5.40626993,
+        volume: 41.47978422,
+        quoteVolume: 7.67396426,
+        weightedAverage: 5.40526158,
+      },
+      {
+        date: 1541203200,
+        high: 5.40626695,
+        low: 5.36630778,
+        open: 5.40626695,
+        close: 5.36630778,
+        volume: 16.15115142,
+        quoteVolume: 3.00401063,
+        weightedAverage: 5.37652938,
+      },
+      {
         date: 1541217600,
         high: 5.37142104,
         low: 5.36630779,
@@ -86,86 +116,6 @@ module.exports = (config = cfgNetwork, log) => {
         volume: 1603.63503219,
         quoteVolume: 299.20501674,
         weightedAverage: 5.35965288,
-      },
-      {
-        date: 1541246400,
-        high: 5.37744185,
-        low: 5.32510329,
-        open: 5.36230494,
-        close: 5.3357535,
-        volume: 287.61105029,
-        quoteVolume: 53.52032796,
-        weightedAverage: 5.37386561,
-      },
-      {
-        date: 1541260800,
-        high: 5.35244368,
-        low: 5.33199155,
-        open: 5.35244368,
-        close: 5.34265553,
-        volume: 197.90709771,
-        quoteVolume: 36.99859644,
-        weightedAverage: 5.34904338,
-      },
-      {
-        date: 1541275200,
-        high: 5.36270578,
-        low: 5.29548947,
-        open: 5.33499177,
-        close: 5.32021406,
-        volume: 548.98270957,
-        quoteVolume: 103.34624019,
-        weightedAverage: 5.31207239,
-      },
-      {
-        date: 1541289600,
-        high: 5.32021434,
-        low: 5.31,
-        open: 5.32021434,
-        close: 5.31000497,
-        volume: 194.41544776,
-        quoteVolume: 36.61269412,
-        weightedAverage: 5.31005577,
-      },
-      {
-        date: 1541304000,
-        high: 5.50572809,
-        low: 5.31,
-        open: 5.31666813,
-        close: 5.41019655,
-        volume: 61216.74337171,
-        quoteVolume: 11163.1518972,
-        weightedAverage: 5.48382248,
-      },
-      {
-        date: 1541318400,
-        high: 5.46585636,
-        low: 5.41019742,
-        open: 5.42101714,
-        close: 5.45417253,
-        volume: 5141.96161465,
-        quoteVolume: 941.27758051,
-        weightedAverage: 5.46274735,
-      },
-      {
-        date: 1541332800,
-        high: 5.51537547,
-        low: 5.42152378,
-        open: 5.42152378,
-        close: 5.51537546,
-        volume: 12623.3502967,
-        quoteVolume: 2314.71900512,
-        weightedAverage: 5.45351304,
-      },
-      {
-        date: 1541347200,
-        high: 5.52000001,
-        low: 5.4607642,
-        open: 5.4607642,
-        close: 5.52,
-        volume: 1058.13013923,
-        quoteVolume: 193.63068401,
-        weightedAverage: 5.46468213,
       },
     ]);
 

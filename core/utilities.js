@@ -86,9 +86,7 @@ module.exports.arrayToObject = (array) => {
       low: column[1],
       open: column[2],
       close: column[3],
-      volume: column[4],
-      quoteVolume: column[5],
-      weightedAverage: column[6],
+      weightedAverage: column[4],
     }));
   } catch (error) {
     throw new Error(`Невозможно преобразовать объект в массив. ${error.message}`);

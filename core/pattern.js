@@ -16,7 +16,7 @@ module.exports.create = (models, config = cfgNetwork) => {
         ) {
           pattern.push({
             input: columns
-              .slice(count + 0, count + config.pattern.input)
+              .slice(count, count + config.pattern.input)
               .map(column => utilities.objectToArray(column)),
             output: columns
               .slice(
