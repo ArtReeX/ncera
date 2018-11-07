@@ -12,9 +12,10 @@
         "columns": "columns"
       }
     },
-    "pattern": { "input": 10, "output": 1 },
+    "pattern": { "input": 5, "output": 1 },
+    "brain": { "activation": "tanh" },
     "training": {
-      "iterations": 1,
+      "iterations": 50,
       "errorThresh": 0.1,
       "log": true,
       "logPeriod": 1,

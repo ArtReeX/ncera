@@ -5,16 +5,6 @@ const utilities = require('./utilities');
 module.exports.save = (brains, config = cfgNetwork) => {
   try {
     brains.forEach(({ currency, brain }) => {
-      try {
-        brain.toJSON();
-      } catch (error) {
-        throw new Error(`Error1 ${error}`);
-      }
-      try {
-        JSON.stringify(brain.toJSON());
-      } catch (error) {
-        throw new Error(`Error2 ${error}`);
-      }
       const path = `${config.snapshot.path}/${currency + config.snapshot.extension}`;
       utilities.writeToFile(path, JSON.stringify(brain.toJSON()), true);
     });
