@@ -12,8 +12,7 @@ module.exports.train = (brain = brainjs, patterns, config = cfgNetwork) => {
 
     patterns.filter(({ pattern }) => pattern.length).forEach(({ currency, pattern }) => {
       // создание нейронной сети
-      const net = new brain.recurrent.LSTM(config.brain);
-
+      const net = new brain.recurrent.LSTMTimeStep(config.brain);
       // запуск обучения нейронной сети для набора шаблонов каждой из бирж
       pattern.forEach((ptn) => {
         // запуск обучения нейронной сети
@@ -48,7 +47,7 @@ module.exports.loadSnapshots = (brain = brainjs, config = cfgNetwork) => {
 
     snapshot.load(config).forEach(({ currency, data }) => {
       // создание нейронной сети
-      const net = new brain.recurrent.LSTM(config.brain);
+      const net = new brain.recurrent.LSTMTimeStep(config.brain);
 
       // загрузка образа в нейронную сеть
       net.fromJSON(data);
@@ -67,13 +66,9 @@ module.exports.loadSnapshots = (brain = brainjs, config = cfgNetwork) => {
 module.exports.run = (brains, currency, exchange, chart) => {
   try {
     // получения ответа от нейронной сети
-    return utilities.arrayToObject([
-      brains[currency]
-        .run(
-          model.standardizeColumns(exchange, chart).map(column => utilities.objectToArray(column)),
-        )
-        .split(','),
-    ]);
+    return brains[currency]
+      .run(model.standardizeColumns(exchange, chart).map(column => utilities.objectToArray(column)))
+      .map(column => utilities.arrayToObject(column));
   } catch (error) {
     throw new Error(`Не удалось активировать нейронную сеть [${currency}]. ${error.message}`);
   }

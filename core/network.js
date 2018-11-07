@@ -68,6 +68,46 @@ module.exports = (config = cfgNetwork, log) => {
     // активация нейронной сети
     const result = brain.run(brains, 'eos', 'poloniex', [
       {
+        date: 1541116800,
+        high: 5.36649558,
+        low: 5.28800001,
+        open: 5.30508142,
+        close: 5.31590251,
+        volume: 700.49799824,
+        quoteVolume: 131.22524227,
+        weightedAverage: 5.33813453,
+      },
+      {
+        date: 1541131200,
+        high: 5.32472982,
+        low: 5.30537869,
+        open: 5.30893016,
+        close: 5.30537869,
+        volume: 8759.75407577,
+        quoteVolume: 1650.62463471,
+        weightedAverage: 5.30693283,
+      },
+      {
+        date: 1541145600,
+        high: 5.30510731,
+        low: 5.30000006,
+        open: 5.30510731,
+        close: 5.30000068,
+        volume: 79.44208952,
+        quoteVolume: 14.98462984,
+        weightedAverage: 5.3015717,
+      },
+      {
+        date: 1541160000,
+        high: 5.40935999,
+        low: 5.30510731,
+        open: 5.30510731,
+        close: 5.38368016,
+        volume: 5335.29875682,
+        quoteVolume: 990.65970189,
+        weightedAverage: 5.38560188,
+      },
+      {
         date: 1541174400,
         high: 5.4153,
         low: 5.39804999,
@@ -116,6 +156,16 @@ module.exports = (config = cfgNetwork, log) => {
         volume: 1603.63503219,
         quoteVolume: 299.20501674,
         weightedAverage: 5.35965288,
+      },
+      {
+        date: 1541246400,
+        high: 5.37744185,
+        low: 5.32510329,
+        open: 5.36230494,
+        close: 5.3357535,
+        volume: 287.61105029,
+        quoteVolume: 53.52032796,
+        weightedAverage: 5.37386561,
       },
     ]);
 

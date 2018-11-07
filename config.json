@@ -12,8 +12,12 @@
         "columns": "columns"
       }
     },
-    "pattern": { "input": 5, "output": 1 },
-    "brain": { "activation": "tanh" },
+    "pattern": { "input": 10, "output": 1 },
+    "brain": {
+      "inputSize": 5,
+      "outputSize": 5,
+      "activation": "tanh"
+    },
     "training": {
       "iterations": 50,
       "errorThresh": 0.1,
@@ -21,7 +25,7 @@
       "logPeriod": 1,
       "learningRate": 0.3,
       "momentum": 0.1,
-      "callbackPeriod": 1,
+      "callbackPeriod": 5,
       "timeout": null
     }
   },
