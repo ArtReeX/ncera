@@ -66,7 +66,7 @@ module.exports = (config = cfgNetwork, log) => {
     );
 
     // активация нейронной сети
-    const result = brain.run(brains, 'eos', 'poloniex', [
+    const result = brain.run(brains, 'eos', 'poloniex', config, [
       {
         date: 1541116800,
         high: 5.36649558,
