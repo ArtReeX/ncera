@@ -14,10 +14,13 @@
     },
     "pattern": { "input": 10, "output": 1 },
     "brain": {
+      "inputSize": 5,
+      "outputSize": 5,
+      "hiddenLayers": [20],
       "activation": "tanh"
     },
     "training": {
-      "iterations": 20000,
+      "iterations": 10000,
       "errorThresh": 0.1,
       "log": true,
       "logPeriod": 1,
