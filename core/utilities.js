@@ -81,13 +81,13 @@ module.exports.objectToArray = (object) => {
 // функция преобразования массива в объект
 module.exports.arrayToObject = (array) => {
   try {
-    return array.map(column => ({
-      high: column[0],
-      low: column[1],
-      open: column[2],
-      close: column[3],
-      weightedAverage: column[4],
-    }));
+    return {
+      high: array[0],
+      low: array[1],
+      open: array[2],
+      close: array[3],
+      weightedAverage: array[4],
+    };
   } catch (error) {
     throw new Error(`Невозможно преобразовать объект в массив. ${error.message}`);
   }

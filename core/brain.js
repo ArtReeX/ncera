@@ -10,29 +10,31 @@ module.exports.train = (brain = brainjs, patterns, config = cfgNetwork) => {
     // создание хранилища нейронных сетей
     const brains = {};
 
-    patterns.filter(({ pattern }) => pattern.length).forEach(({ currency, pattern }) => {
-      // создание нейронной сети
-      const net = new brain.recurrent.LSTMTimeStep(config.brain);
-      // запуск обучения нейронной сети для набора шаблонов каждой из бирж
-      pattern.forEach((ptn) => {
-        // запуск обучения нейронной сети
-        net.train(
-          ptn.pattern,
-          Object.assign(config.training, {
-            callback: () => {
-              // межитерационное сохранение
-              snapshot.save([{ currency, brain: net }], config);
-            },
-          }),
-        );
+    patterns
+      .filter(({ pattern }) => pattern.length)
+      .forEach(({ currency, pattern }) => {
+        // создание нейронной сети
+        const net = new brain.recurrent.LSTMTimeStep(config.brain);
+        // запуск обучения нейронной сети для набора шаблонов каждой из бирж
+        pattern.forEach((ptn) => {
+          // запуск обучения нейронной сети
+          net.train(
+            ptn.pattern,
+            Object.assign(config.training, {
+              callback: () => {
+                // межитерационное сохранение
+                snapshot.save([{ currency, brain: net }], config);
+              },
+            }),
+          );
+        });
+
+        // сохранение образа нейронной сети
+        snapshot.save([{ currency, brain: net }], config);
+
+        // добавление нейронной сети в хранилище
+        brains[currency] = net;
       });
-
-      // сохранение образа нейронной сети
-      snapshot.save([{ currency, brain: net }], config);
-
-      // добавление нейронной сети в хранилище
-      brains[currency] = net;
-    });
     return brains;
   } catch (error) {
     throw new Error(`Невозможно обучить нейронную сеть. ${error}`);
@@ -67,7 +69,10 @@ module.exports.run = (brains, currency, exchange, chart) => {
   try {
     // получения ответа от нейронной сети
     return brains[currency]
-      .run(model.standardizeColumns(exchange, chart).map(column => utilities.objectToArray(column)))
+      .forecast(
+        model.standardizeColumns(exchange, chart).map(column => utilities.objectToArray(column)),
+        cfgNetwork.pattern.output,
+      )
       .map(column => utilities.arrayToObject(column));
   } catch (error) {
     throw new Error(`Не удалось активировать нейронную сеть [${currency}]. ${error.message}`);

@@ -19,7 +19,7 @@
       "activation": "tanh"
     },
     "training": {
-      "iterations": 50,
+      "iterations": 20000,
       "errorThresh": 0.1,
       "log": true,
       "logPeriod": 1,
