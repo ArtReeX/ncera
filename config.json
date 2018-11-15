@@ -25,7 +25,7 @@
       "logPeriod": 1,
       "learningRate": 0.3,
       "momentum": 0.1,
-      "callbackPeriod": 5,
+      "callbackPeriod": 10,
       "timeout": null
     }
   },
