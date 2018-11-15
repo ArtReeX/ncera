@@ -18,7 +18,9 @@ module.exports.train = (brain = brainjs, patterns, config = cfgNetwork) => {
         const outputColumnSize = pattern[0].pattern[0].input[0].length;
         const net = new brain.recurrent.LSTMTimeStep({
           inputSize: inputColumnSize,
-          hiddenLayers: [config.pattern.input * inputColumnSize],
+          hiddenLayers: [
+            config.pattern.input * inputColumnSize + config.pattern.input * outputColumnSize,
+          ],
           outputSize: outputColumnSize,
           activation: config.brain.activation,
         });
