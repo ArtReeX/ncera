@@ -15,6 +15,7 @@
     "pattern": { "input": 10, "output": 1 },
     "brain": {
       "inputSize": 5,
+      "hiddenLayers": [20],
       "outputSize": 5,
       "activation": "tanh"
     },
