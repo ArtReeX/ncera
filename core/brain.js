@@ -14,11 +14,12 @@ module.exports.train = (brain = brainjs, patterns, config = cfgNetwork) => {
       .filter(({ pattern }) => pattern.length)
       .forEach(({ currency, pattern }) => {
         // создание нейронной сети
-        const columnSize = pattern[0].pattern[0].input[0].length;
+        const inputColumnSize = pattern[0].pattern[0].input[0].length;
+        const outputColumnSize = pattern[0].pattern[0].input[0].length;
         const net = new brain.recurrent.LSTMTimeStep({
-          inputSize: columnSize,
-          hiddenLayers: [config.pattern.input * columnSize],
-          outputSize: columnSize,
+          inputSize: inputColumnSize,
+          hiddenLayers: [config.pattern.input * inputColumnSize],
+          outputSize: outputColumnSize,
           activation: config.brain.activation,
         });
         // запуск обучения нейронной сети для набора шаблонов каждой из бирж
