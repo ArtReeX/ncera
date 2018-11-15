@@ -67,13 +67,16 @@ module.exports.loadSnapshots = (brain = brainjs, config = cfgNetwork) => {
 // функция активации нейронной сети
 module.exports.run = (brains, currency, exchange, chart) => {
   try {
-    // получения ответа от нейронной сети
-    return brains[currency]
-      .forecast(
-        model.standardizeColumns(exchange, chart).map(column => utilities.objectToArray(column)),
-        cfgNetwork.pattern.output,
-      )
-      .map(column => utilities.arrayToObject(column));
+    if (typeof brains[currency] !== 'undefined') {
+      // получения ответа от нейронной сети
+      return brains[currency]
+        .forecast(
+          model.standardizeColumns(exchange, chart).map(column => utilities.objectToArray(column)),
+          cfgNetwork.pattern.output,
+        )
+        .map(column => utilities.arrayToObject(column));
+    }
+    throw new Error(`Не удалось активировать нейронную сеть для валюты [${currency}]`);
   } catch (error) {
     throw new Error(`Не удалось активировать нейронную сеть [${currency}]. ${error.message}`);
   }
