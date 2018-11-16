@@ -59,42 +59,42 @@
   "output": {
     "poloniex": [
       {
-        "high": "5.309",
-        "low": "5.251",
-        "open": "5.309",
-        "close": "5.284",
-        "weightedAverage": "5.283"
+        "high": 5.30853068,
+        "low": 5.25089101,
+        "open": 5.30853068,
+        "close": 5.28382498,
+        "weightedAverage": 5.28258357
       },
       {
-        "high": "5.284",
-        "low": "5.262",
-        "open": "5.284",
-        "close": "5.275",
-        "weightedAverage": "5.272"
+        "high": 5.28381075,
+        "low": 5.26172017,
+        "open": 5.28381075,
+        "close": 5.27544445,
+        "weightedAverage": 5.27150645
       },
       {
-        "high": "5.271",
-        "low": "5.228",
-        "open": "5.271",
-        "close": "5.228",
-        "weightedAverage": "5.259"
+        "high": 5.27101191,
+        "low": 5.22751657,
+        "open": 5.27101184,
+        "close": 5.22751673,
+        "weightedAverage": 5.25914164
       }
     ],
 
     "exmo": [
       {
-        "high": "5.309",
-        "low": "5.251",
-        "open": "5.309",
-        "close": "5.284",
-        "weightedAverage": "5.283"
+        "high": 5.30853068,
+        "low": 5.25089101,
+        "open": 5.30853068,
+        "close": 5.28382498,
+        "weightedAverage": 5.28258357
       },
       {
-        "high": "5.284",
-        "low": "5.262",
-        "open": "5.284",
-        "close": "5.275",
-        "weightedAverage": "5.272"
+        "high": 5.28381075,
+        "low": 5.26172017,
+        "open": 5.28381075,
+        "close": 5.27544445,
+        "weightedAverage": 5.27150645
       }
     ]
   }

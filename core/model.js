@@ -70,19 +70,19 @@ module.exports.standardizeColumns = (exchange, columns) => {
     switch (exchange) {
       case 'poloniex':
         return columns.map(column => ({
-          high: column.high.toFixed(3),
-          low: column.low.toFixed(3),
-          open: column.open.toFixed(3),
-          close: column.close.toFixed(3),
-          weightedAverage: column.weightedAverage.toFixed(3),
+          high: column.high,
+          low: column.low,
+          open: column.open,
+          close: column.close,
+          weightedAverage: column.weightedAverage,
         }));
       case 'exmo':
         return columns.map(column => ({
-          high: column.high.toFixed(3),
-          low: column.low.toFixed(3),
-          open: column.open.toFixed(3),
-          close: column.close.toFixed(3),
-          weightedAverage: column.weightedAverage.toFixed(3),
+          high: column.high,
+          low: column.low,
+          open: column.open,
+          close: column.close,
+          weightedAverage: column.weightedAverage,
         }));
       default:
         return [];
