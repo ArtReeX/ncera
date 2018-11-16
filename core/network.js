@@ -66,7 +66,7 @@ module.exports = (config = cfgNetwork, log) => {
     );
 
     // активация нейронной сети
-    const result = brain.run(brains, 'eos', 'poloniex', config, [
+    const result1 = brain.run(brains, 'eos', 'poloniex', config, [
       {
         date: 1542196800,
         high: 5.24478677,
@@ -169,7 +169,111 @@ module.exports = (config = cfgNetwork, log) => {
       },
     ]);
 
-    console.log(result);
+    const result2 = brain.run(brains, 'eth', 'poloniex', config, [
+      {
+        date: 1542211200,
+        high: 194.46126729,
+        low: 175.72908945,
+        open: 191.48341715,
+        close: 184.17433028,
+        volume: 2669600.2895258,
+        quoteVolume: 14351.19329289,
+        weightedAverage: 186.01939469,
+      },
+      {
+        date: 1542225600,
+        high: 187.81640668,
+        low: 176.9,
+        open: 185.35999999,
+        close: 187.76640658,
+        volume: 655039.87530809,
+        quoteVolume: 3579.11672671,
+        weightedAverage: 183.01718701,
+      },
+      {
+        date: 1542240000,
+        high: 190.200001,
+        low: 179.39330004,
+        open: 187.76640658,
+        close: 182.1887,
+        volume: 364374.6847582,
+        quoteVolume: 1962.31300566,
+        weightedAverage: 185.68632206,
+      },
+      {
+        date: 1542254400,
+        high: 184.36409993,
+        low: 177.32214033,
+        open: 182.07435,
+        close: 182.61876216,
+        volume: 95632.59346575,
+        quoteVolume: 530.21503907,
+        weightedAverage: 180.36567509,
+      },
+      {
+        date: 1542268800,
+        high: 184.45062,
+        low: 174.45888851,
+        open: 184.02944992,
+        close: 178.1828841,
+        volume: 418925.84225483,
+        quoteVolume: 2364.91877499,
+        weightedAverage: 177.14174655,
+      },
+      {
+        date: 1542283200,
+        high: 182.05989446,
+        low: 171.48445122,
+        open: 178.89995974,
+        close: 181.25031001,
+        volume: 488965.96108924,
+        quoteVolume: 2766.01100068,
+        weightedAverage: 176.7765786,
+      },
+      {
+        date: 1542297600,
+        high: 184.92565934,
+        low: 177.5,
+        open: 180.30290657,
+        close: 184.3304999,
+        volume: 385946.36065074,
+        quoteVolume: 2137.19606732,
+        weightedAverage: 180.58537845,
+      },
+      {
+        date: 1542312000,
+        high: 184.71595999,
+        low: 179.58909929,
+        open: 184.32889998,
+        close: 184.71595999,
+        volume: 60928.81379464,
+        quoteVolume: 335.25283137,
+        weightedAverage: 181.73989327,
+      },
+      {
+        date: 1542326400,
+        high: 184.89,
+        low: 180.74000006,
+        open: 183.67459017,
+        close: 183.54029,
+        volume: 38396.37779238,
+        quoteVolume: 210.14971667,
+        weightedAverage: 182.70963387,
+      },
+      {
+        date: 1542340800,
+        high: 183.29603999,
+        low: 181.77992971,
+        open: 183.29603999,
+        close: 182,
+        volume: 15381.77584071,
+        quoteVolume: 84.47395514,
+        weightedAverage: 182.08897423,
+      },
+    ]);
+
+    console.log(result1);
+    console.log(result2);
   } catch (error) {
     throw new Error(`Невозможно произвести инициализацию нейронной сети. ${error.message}`);
   }
