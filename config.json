@@ -15,7 +15,7 @@
     "pattern": { "input": 10, "output": 1 },
     "brain": {
       "inputSize": 5,
-      "hiddenLayers": [20],
+      "hiddenLayers": [12],
       "outputSize": 5,
       "activation": "tanh"
     },
@@ -23,7 +23,7 @@
       "iterations": 10000,
       "errorThresh": 0.3,
       "log": true,
-      "logPeriod": 1,
+      "logPeriod": 5,
       "learningRate": 0.3,
       "momentum": 0.1,
       "callbackPeriod": 10,
