@@ -76,7 +76,7 @@ module.exports.run = (brains, currency, exchange, config = cfgNetwork, chart) =>
         )
         .map(column => utilities.arrayToObject(column));
     }
-    throw new Error(`Не удалось активировать нейронную сеть для валюты [${currency}].`);
+    throw new Error(`Нейронная сеть не обучена для валюты [${currency}].`);
   } catch (error) {
     throw new Error(`Не удалось активировать нейронную сеть [${currency}]. ${error.message}`);
   }
