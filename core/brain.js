@@ -14,7 +14,8 @@ module.exports.train = (brain = brainjs, patterns, config = cfgNetwork) => {
       .filter(({ pattern }) => pattern.length)
       .forEach(({ currency, pattern }) => {
         // создание нейронной сети
-        const net = new brain.recurrent.LSTMTimeStep(config.brain);
+        // const net = new brain.recurrent.LSTMTimeStep(config.brain);
+        const net = new brain.CrossValidate(brain.recurrent.LSTMTimeStep, config.brain);
         // запуск обучения нейронной сети для набора шаблонов каждой из бирж
         pattern.forEach((ptn) => {
           // запуск обучения нейронной сети
@@ -33,7 +34,7 @@ module.exports.train = (brain = brainjs, patterns, config = cfgNetwork) => {
         snapshot.save([{ currency, brain: net }], config);
 
         // добавление нейронной сети в хранилище
-        brains[currency] = net;
+        brains[currency] = net.toNeuralNetwork();
       });
     return brains;
   } catch (error) {
@@ -49,13 +50,13 @@ module.exports.loadSnapshots = (brain = brainjs, config = cfgNetwork) => {
 
     snapshot.load(config).forEach(({ currency, data }) => {
       // создание нейронной сети
-      const net = new brain.recurrent.LSTMTimeStep(config.brain);
-
+      // const net = new brain.recurrent.LSTMTimeStep(config.brain);
+      const net = new brain.CrossValidate(brain.recurrent.LSTMTimeStep, config.brain);
       // загрузка образа в нейронную сеть
       net.fromJSON(data);
 
       // добавление нейронной сети в хранилище
-      brains[currency] = net;
+      brains[currency] = net.toNeuralNetwork();
     });
 
     return brains;
