@@ -1,5 +1,5 @@
-const { cfgNetwork } = require('../config');
-const utilities = require('./utilities');
+const { cfgNetwork } = require('../../config');
+const utilities = require('../utilities');
 
 // функция сохранения образов нейронной сети
 module.exports.save = (brains, config = cfgNetwork) => {

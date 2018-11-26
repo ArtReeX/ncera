@@ -1,5 +1,5 @@
 const utilities = require('../core/utilities');
-const model = require('../core/model');
+const model = require('../core/brain/model');
 const testData = require('./data/model');
 
 // проверка работы с моделями нейронной сети

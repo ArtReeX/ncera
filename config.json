@@ -1,4 +1,7 @@
 {
+  "cfgServer": {
+    "port": 8080
+  },
   "cfgNetwork": {
     "snapshot": {
       "path": "snapshots",
@@ -21,7 +24,7 @@
     },
     "training": {
       "iterations": 1000,
-      "errorThresh": 0.01,
+      "errorThresh": 0.1,
       "log": true,
       "logPeriod": 5,
       "learningRate": 0.3,
@@ -34,11 +37,13 @@
     "appenders": {
       "app": { "type": "file", "filename": "./logs/app.txt" },
       "network": { "type": "file", "filename": "./logs/network.txt" },
+      "server": { "type": "file", "filename": "./logs/server.txt" },
       "console": { "type": "console" }
     },
     "categories": {
       "app": { "appenders": ["app", "console"], "level": "trace" },
       "network": { "appenders": ["network", "console"], "level": "trace" },
+      "server": { "appenders": ["server", "console"], "level": "trace" },
       "another": { "appenders": ["app", "console"], "level": "trace" },
       "default": { "appenders": ["app", "console"], "level": "trace" }
     }

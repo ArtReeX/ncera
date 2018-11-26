@@ -1,4 +1,4 @@
-const pattern = require('../core/pattern');
+const pattern = require('../core/brain/pattern');
 const testData = require('./data/pattern');
 
 // проверка работы с шаблонами нейронной сети

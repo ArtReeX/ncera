@@ -1,5 +1,5 @@
-const utilities = require('./utilities');
-const { cfgNetwork } = require('../config');
+const utilities = require('../utilities');
+const { cfgNetwork } = require('../../config');
 
 // функция создания шаблонов из стандартизированных моделей
 module.exports.create = (models, config = cfgNetwork) => {

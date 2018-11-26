@@ -1,84 +1,82 @@
 const brainjs = require('brain.js');
 const { cfgNetwork } = require('../config');
-const snapshot = require('./snapshot');
-const model = require('./model');
-const utilities = require('./utilities');
+const model = require('./brain/model');
+const pattern = require('./brain/pattern');
+const brain = require('./brain/brain');
 
-// функция обучения нейронной сети на основе шаблонов
-module.exports.train = (brain = brainjs, patterns, config = cfgNetwork) => {
-  try {
-    // создание хранилища нейронных сетей
-    const brains = {};
+module.exports = class Brain {
+  constructor(config = cfgNetwork, log) {
+    try {
+      // считывание моделей графиков из папки для дальнейшего обучения нейронной сети
+      const missingModels = model.getMissingModels(config);
+      // отправка информации в лог
+      log.network.info(
+        `Найдено ${missingModels.length} новых моделей для обучения: ${JSON.stringify(
+          missingModels.map(currency => currency.currency),
+        )}.`,
+      );
 
-    patterns
-      .filter(({ pattern }) => pattern.length)
-      .forEach(({ currency, pattern }) => {
-        // создание нейронной сети
-        // const net = new brain.recurrent.LSTMTimeStep(config.brain);
-        const net = new brain.CrossValidate(brain.recurrent.LSTMTimeStep, config.brain);
-        // запуск обучения нейронной сети для набора шаблонов каждой из бирж
-        pattern.forEach((ptn) => {
-          // запуск обучения нейронной сети
-          net.train(
-            ptn.pattern,
-            Object.assign(config.training, {
-              callback: () => {
-                // межитерационное сохранение
-                snapshot.save([{ currency, brain: net }], config);
-              },
-            }),
-          );
-        });
+      // стандартизирование шаблонов под единый формат
+      const standardizedModels = model.standardizeModels(missingModels, config);
+      // отправка информации в лог
+      log.network.info(
+        `Было стандартизировано ${
+          standardizedModels.length
+        } новых моделей для обучения: ${JSON.stringify(
+          standardizedModels.map(
+            stockModel => `${stockModel.currency} - ${stockModel.stockCharts.map(chart => chart.exchange)}`,
+          ),
+        )}.`,
+      );
 
-        // сохранение образа нейронной сети
-        snapshot.save([{ currency, brain: net }], config);
+      // создание шаблонов для обучения из стандартизированных моделей
+      const patterns = pattern.create(standardizedModels, config);
+      // отправка информации в лог
+      log.network.info(
+        `Создано следующее количество шаблонов для обучения: ${patterns.map(
+          chart => `${chart.currency} - ${chart.pattern.map(
+            ptn => `[${ptn.exchange} - ${ptn.pattern.length}]`,
+          )}`,
+        )}.`,
+      );
 
-        // добавление нейронной сети в хранилище
-        brains[currency] = net.toNeuralNetwork();
-      });
-    return brains;
-  } catch (error) {
-    throw new Error(`Невозможно обучить нейронную сеть. ${error}`);
-  }
-};
+      // загрузка образов нейронной сети
+      const loadedBrains = brain.loadSnapshots(brainjs, config);
+      // отправка информации в лог
+      log.network.info(
+        `Загружены образы следующих нейронных сетей: ${Object.keys(loadedBrains).map(key => key)}.`,
+      );
 
-// функция загрузки нейронной сети
-module.exports.loadSnapshots = (brain = brainjs, config = cfgNetwork) => {
-  try {
-    // создание хранилища нейронных сетей
-    const brains = {};
+      // обучение нейронной сети по шаблонам
+      const trainedBrains = brain.train(brainjs, patterns, config);
+      // отправка информации в лог
+      log.network.info(
+        `Обучены следующие нейронные сети: ${Object.keys(trainedBrains).map(key => key)}.`,
+      );
 
-    snapshot.load(config).forEach(({ currency, data }) => {
-      // создание нейронной сети
-      // const net = new brain.recurrent.LSTMTimeStep(config.brain);
-      const net = new brain.CrossValidate(brain.recurrent.LSTMTimeStep, config.brain);
-      // загрузка образа в нейронную сеть
-      net.fromJSON(data);
+      // объединение загруженных и обученных нейронных сетей
+      const brains = Object.assign(loadedBrains, trainedBrains);
+      // отправка информации в лог
+      log.network.info(
+        `Следующие нейронные сети готовы к работе: ${Object.keys(brains).map(key => key)}.`,
+      );
 
-      // добавление нейронной сети в хранилище
-      brains[currency] = net.toNeuralNetwork();
-    });
+      // логгирование информации потребляемых ресурсов
+      log.app.debug(
+        `Потребляемая приложением память: ${(process.memoryUsage().rss / 1048576).toFixed(1)} MB.`,
+      );
 
-    return brains;
-  } catch (error) {
-    throw new Error(`Невозможно загрузить образы нейронной сети. ${error.message}`);
-  }
-};
-
-// функция активации нейронной сети
-module.exports.run = (brains, currency, exchange, config = cfgNetwork, chart) => {
-  try {
-    if (typeof brains[currency] !== 'undefined') {
-      // получения ответа от нейронной сети
-      return brains[currency]
-        .forecast(
-          model.standardizeColumns(exchange, chart).map(column => utilities.objectToArray(column)),
-          config.pattern.output,
-        )
-        .map(column => utilities.arrayToObject(column));
+      // определение переменных
+      this.brains = brains;
+      this.config = config;
+      this.log = log;
+    } catch (error) {
+      throw new Error(`Невозможно произвести инициализацию нейронной сети. ${error.message}`);
     }
-    throw new Error(`Нейронная сеть не обучена для валюты [${currency}].`);
-  } catch (error) {
-    throw new Error(`Не удалось активировать нейронную сеть [${currency}]. ${error.message}`);
+  }
+
+  run(currency, exchange, chart) {
+    // активация нейронной сети
+    return brain.run(this.brains, currency, exchange, this.config, chart);
   }
 };

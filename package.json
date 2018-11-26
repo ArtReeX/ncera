@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "brain.js": "^1.5.1",
+    "express": "^4.16.4",
     "log4js": "^3.0.6"
   },
   "devDependencies": {

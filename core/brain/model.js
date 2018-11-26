@@ -1,6 +1,6 @@
 const fsPath = require('path');
-const { cfgNetwork } = require('../config');
-const utilities = require('./utilities');
+const { cfgNetwork } = require('../../config');
+const utilities = require('../utilities');
 
 // функция считывание моделей графиков для обучений нейронной сети
 module.exports.getMissingModels = (config = cfgNetwork) => {
