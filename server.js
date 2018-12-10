@@ -9,7 +9,12 @@ const setHandlers = (app, network, log) => {
           req.body,
         )}.`,
       );
-      const result = network.run(req.query.currency, req.query.exchange, req.body);
+      const result = network.run(
+        req.query.currency,
+        req.query.exchange,
+        req.query.forecast,
+        req.body,
+      );
       log.server.info(`Результат нейронной сети: ${JSON.stringify(result)}.`);
       res.send(result);
     } catch (error) {

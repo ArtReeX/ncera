@@ -15,9 +15,9 @@ Neural Currency Exchange Rate Analyzer.
 
 # Пример запроса:
 
-http://localhost:8080/run?currency=eos&exchange=poloniex
+http://localhost:8080/run?currency=eos&exchange=poloniex&forecast=1
 
-# Описание параметров: "currency" - валюта, "exchange" - биржа.
+# Описание параметров: "currency" - валюта, "exchange" - биржа, "forecast" - количество столбцов для предсказания.
 
 # Тело запроса:
 

@@ -14,27 +14,27 @@ module.exports.train = (brain = brainjs, patterns, config = cfgNetwork) => {
       .filter(({ pattern }) => pattern.length)
       .forEach(({ currency, pattern }) => {
         // создание нейронной сети
-        const crossValidate = new brain.CrossValidate(brain.recurrent.LSTMTimeStep, config.brain);
+        const net = new brain.recurrent.LSTMTimeStep(config.brain);
 
         // запуск обучения нейронной сети для набора шаблонов каждой из бирж
         pattern.forEach((ptn) => {
           // запуск обучения нейронной сети
-          crossValidate.train(
+          net.train(
             ptn.pattern,
             Object.assign(config.training, {
               callback: () => {
                 // межитерационное сохранение
-                // snapshot.save([{ currency, brain: crossValidate }], config);
+                snapshot.save([{ currency, brain: net }], config);
               },
             }),
           );
         });
 
         // сохранение образа нейронной сети
-        snapshot.save([{ currency, brain: crossValidate }], config);
+        snapshot.save([{ currency, brain: net }], config);
 
         // добавление нейронной сети в хранилище
-        brains[currency] = crossValidate.toNeuralNetwork();
+        brains[currency] = net;
       });
     return brains;
   } catch (error) {
@@ -50,10 +50,10 @@ module.exports.loadSnapshots = (brain = brainjs, config = cfgNetwork) => {
 
     snapshot.load(config).forEach(({ currency, data }) => {
       // создание нейронной сети
-      const crossValidate = new brain.CrossValidate(brain.recurrent.LSTMTimeStep, config.brain);
+      const net = new brain.recurrent.LSTMTimeStep(config.brain);
 
       // загрузка образа в нейронную сеть
-      const net = crossValidate.fromJSON(data);
+      net.fromJSON(data);
 
       // добавление нейронной сети в хранилище
       brains[currency] = net;
@@ -66,14 +66,14 @@ module.exports.loadSnapshots = (brain = brainjs, config = cfgNetwork) => {
 };
 
 // функция активации нейронной сети
-module.exports.run = (brains, currency, exchange, config = cfgNetwork, chart) => {
+module.exports.run = (brains, currency, exchange, forecast, chart) => {
   try {
     if (typeof brains[currency] !== 'undefined') {
       // получения ответа от нейронной сети
       return brains[currency]
         .forecast(
           model.standardizeColumns(exchange, chart).map(column => utilities.objectToArray(column)),
-          config.pattern.output,
+          forecast,
         )
         .map(column => column.map(param => Math.abs(param)))
         .map(column => utilities.arrayToObject(column));

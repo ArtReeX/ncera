@@ -30,7 +30,7 @@ module.exports = class Brain {
       );
 
       // создание шаблонов для обучения из стандартизированных моделей
-      const patterns = pattern.create(standardizedModels, config);
+      const patterns = pattern.create(standardizedModels);
       // отправка информации в лог
       log.network.info(
         `Создано следующее количество шаблонов для обучения: ${patterns.map(
@@ -75,8 +75,8 @@ module.exports = class Brain {
     }
   }
 
-  run(currency, exchange, chart) {
+  run(currency, exchange, forecast, chart) {
     // активация нейронной сети
-    return brain.run(this.brains, currency, exchange, this.config, chart);
+    return brain.run(this.brains, currency, exchange, forecast, chart);
   }
 };

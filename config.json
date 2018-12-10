@@ -15,16 +15,15 @@
         "columns": "columns"
       }
     },
-    "pattern": { "input": 10, "output": 1 },
     "brain": {
       "inputSize": 5,
-      "hiddenLayers": [20],
+      "hiddenLayers": [5, 5, 5, 5, 5, 5, 5, 5, 5, 5],
       "outputSize": 5,
       "activation": "tanh"
     },
     "training": {
       "iterations": 1000,
-      "errorThresh": 0.1,
+      "errorThresh": 0.05,
       "log": true,
       "logPeriod": 5,
       "learningRate": 0.3,
