@@ -24,7 +24,7 @@ module.exports.train = (brain = brainjs, patterns, config = cfgNetwork) => {
             Object.assign(config.training, {
               callback: () => {
                 // межитерационное сохранение
-                snapshot.save([{ currency, brain: crossValidate }], config);
+                // snapshot.save([{ currency, brain: crossValidate }], config);
               },
             }),
           );
@@ -75,6 +75,7 @@ module.exports.run = (brains, currency, exchange, config = cfgNetwork, chart) =>
           model.standardizeColumns(exchange, chart).map(column => utilities.objectToArray(column)),
           config.pattern.output,
         )
+        .map(column => column.map(param => Math.abs(param)))
         .map(column => utilities.arrayToObject(column));
     }
     throw new Error(`Нейронная сеть не обучена для валюты [${currency}].`);

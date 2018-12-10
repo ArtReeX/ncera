@@ -4,12 +4,12 @@ const { cfgServer } = require('./config');
 const setHandlers = (app, network, log) => {
   app.get('/run', (req, res) => {
     try {
-      log.server.trace(`Входящий запрос: ${JSON.stringify(req.query)}.`);
-      const result = network.run(
-        req.query.currency,
-        req.query.exchange,
-        JSON.parse(req.query.chart),
+      log.server.trace(
+        `Входящий запрос, параметры: ${JSON.stringify(req.query)}, данные: ${JSON.stringify(
+          req.body,
+        )}.`,
       );
+      const result = network.run(req.query.currency, req.query.exchange, req.body);
       log.server.info(`Результат нейронной сети: ${JSON.stringify(result)}.`);
       res.send(result);
     } catch (error) {
@@ -22,6 +22,7 @@ const setHandlers = (app, network, log) => {
 module.exports = (network, port = cfgServer.port, log) => {
   try {
     const app = express();
+    app.use(express.json());
     setHandlers(app, network, log);
     app.listen(port || process.env.PORT);
   } catch (error) {
